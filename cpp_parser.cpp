@@ -1,10 +1,7 @@
 // This is the original KML file in C++ without the connection to MQTT
 
-
 // KMLParser.cpp : This file contains the 'main' function. Program execution begins and ends there.
 // Josephine Esposito | 23/05/2022
-
-
 
 // Librerie
 #include <iostream>
@@ -12,7 +9,6 @@
 #include <vector>
 #include <fstream>  // per leggere il file
 #include <string>   // getline()
-// #include "MQTTClient.h"
 
 using namespace std;
 
@@ -117,18 +113,12 @@ int main()
 
     if (coordinateFile.is_open()) {
         for (int i = 0; i < lat.size(); i++) {
-            coordinateFile << lat.at(i) << "\t" << lon.at(i) << "\n";
+            coordinateFile << lat.at(i) << "-" << lon.at(i) << "\n";
         }
         coordinateFile.close();
     }
     else cout << "[Error 0] Problem with opening file";
     /////////////////////////////////////////////////////////////////////////////
-
-    // invia a MQTT
-
-
-
-
 
     cout << "Fine programma!!";
 }
