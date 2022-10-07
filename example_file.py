@@ -22,15 +22,15 @@ def on_message(client, userdata, msg):
 # using MQTT version 5 here, for 3.1.1: MQTTv311, 3.1: MQTTv31
 # userdata is user defined data of any type, updated by user_data_set()
 # client_id is the given name of the client
-client = paho.Client(client_id="jojo", userdata=None, protocol=paho.MQTTv5)
+client = paho.Client(client_id="KML", userdata=None, protocol=paho.MQTTv5)
 client.on_connect = on_connect
 
 # enable TLS for secure connection
-client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
+# client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)      # not enables on the test MQTT mosquitto broker
 # set username and password
-client.username_pw_set("admin", "admin_root")
+client.username_pw_set("", "")
 # connect to HiveMQ Cloud on port 8883 (default for MQTT)
-client.connect("broker.emqx.io", 5040)
+client.connect("localhost", 1883)
 
 # setting callbacks, use separate functions like above for better visibility
 client.on_subscribe = on_subscribe
@@ -38,10 +38,10 @@ client.on_message = on_message
 client.on_publish = on_publish
 
 # subscribe to all topics of encyclopedia by using the wildcard "#"
-client.subscribe("KML_01/#", qos=1)
+client.subscribe("KML_testVS/#", qos=1)
 
 # a single publish, this can also be done in loops, etc.
-client.publish("KML_01/KML", payload="hot", qos=0)
+client.publish("KML_testVS/KML", payload="hot", qos=0)  # receives the payload from the original py programm!! -je 07/11/2022
 
 # loop_forever for simplicity, here you need to stop the loop manually
 # you can also use loop_start and loop_stop
