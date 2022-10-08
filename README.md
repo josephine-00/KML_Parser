@@ -9,6 +9,9 @@ The program is realized entirely in Python and needs the Eclipse Paho library to
 
 ---
 
-# mosquitto
-To run mosquitto:
-'''$ .\mosquitto.exe -v'''
+## mosquitto
+To run mosquitto, paste this command into the folder where you installed mosquitto. This works only on Windows PowerShell
+
+```
+.\mosquitto.exe -v
+```
