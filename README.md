@@ -15,3 +15,9 @@ To run mosquitto, paste this command into the folder where you installed mosquit
 ```
 .\mosquitto.exe -v
 ```
+
+To run the python program you can use this command instead. It will work only on Windows PowerShell
+
+```
+python mqtt_connection.py -v
+```
